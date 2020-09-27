@@ -1,7 +1,7 @@
 # PythonCode
 ﻿# LoginController utility
 
-Login Controller is a utility created for auto login agents in case of force logout by finesse due to IP phone unregistration.
+Login Controller is a utility created for auto login agents in case of force logout by finesse due to IP phone unregistration. it is tested with  cisco finesse 11.0 and 11.5 version.
 
 ## Installation
 
