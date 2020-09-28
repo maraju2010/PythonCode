@@ -1,7 +1,0 @@
-##Version Control(Note for Developer use)
-3.0 : First Version distributed to contact center end user. Required admin rights to start.
-3.1 : Removed admin rights dependency, the utility runs with regular user rights.
-3.2 : Enhanced by adding regex check to validate Agent Logged in Status and detect Sign in error post forced logout.
-3.3 : Implemented reporting feature by sending events at (loggedon(1),forecedlogout(2) and reloginafter forcedlogout(3)).
-      In addition,implemented backoff algorithm for client to wait for backoff time before sending event.
-      Implemented fixed timer for autologin. the value is timera provided in configproperty.
