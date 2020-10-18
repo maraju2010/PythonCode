@@ -20,7 +20,7 @@ ProjReq="""
 ######################################################################
 #    Default credentials for cisco endpoints. It will be invoked for #
 #    phones without any Grp or if no credential found under          #
-#    VIL credentials table.                                          #
+#     credentials table.                                          #
 ######################################################################
 """
 Credentials = {
