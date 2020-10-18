@@ -80,7 +80,7 @@ DATABASES = {
 #Database Configuration
 database = "db_name"
 user = "root"
-password = "Hitler.55"
+password = "XXXXXXXX"
 charSet = "utf8mb4"
 cursorType = pymysql.cursors.DictCursor
 
