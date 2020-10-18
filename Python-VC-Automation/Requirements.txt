@@ -1,0 +1,54 @@
+#Req 1
+UCMONAPP
+1) Syslog client - writes to filebeat and tivoli folders.
+2) causecodetable - returns cause code description
+3) checkthreshold - analysis jitter and packet loss and returns the value.
+4) prop - maintains property variables
+5) requestapi - sends http/xml request to phones and fetches response.
+6) state - abstract class
+7) main - runs the application in event mode or poll mode has 2 classes (main and MQ)
+    MQ class - initializes session with rabbit MQ service and subscribes for events.
+    main- runs the program in loop (event mode and poll mode) , maintains the core logic of the application.
+
+UCREGISTRAR
+1) register_prop - maintains property variables
+2) register - maintains subscription with phones.
+
+UCWEBSERVER
+1) mqsend - initializes session with rabbit MQ service and publishes  event to rabbitMQ.
+2) prop   - maintains property variables
+3) webservice - runs in http threaded mode to handle simultaneous http requests from clients.
+
+
+#Req 2 Ambrish
+07 June 2019
+
+1) Logging of all events to separate folder for file beat application.
+2) Provision for configuration of credentials for each endpoints (group wise)
+3) Circle wise email alerts trigger- It means we need to have way to identify the location of device in
+tool so that email or sms can be triggered to those circle users only
+4) Reading description from property file instead of events from phone
+Description means – Name of the end point, It shd have the  IP address also. Also my intension is
+to have CXO_Device Name coming as output so that monitoring person shd be able to identify
+the critical users immed. Or alternatively if we can have a separate group of CXOs created
+which can be marked as Critical by sending into a new file which Tivoli agent  can read.
+First file can be marked as Major which will have other general end points
+
+
+#Req 3 - Sujoy
+09 June 2019
+•	Send not more than 2 alerts for the same endpoint for packet loss / jitter in the first 5 mins of
+ occurance, post that poll the endpoint for alerts only once in 10 mins.
+•	Ability to mark endpoints not be polled for alerts (unless the extension nos. are mentioned in exclusion,
+they will be polled by current mechansim with changes explained above)
+•	Direct integration with SDP MG URL (as we do for other monitoring tools) to send alerts zone wise,
+and alerts for CIO, CXOs to specific set of nos. to avoid alert overload.
+•	In the alert SMS, need to mention end point IP also along with name
+•	Once the above is achieved, we can stop bulk SMS and emails from Tivoli which are not helping.
+Rather let all alert mails go to NOC under Critical / Major category and NOC intimates forward to VC team.
+
+
+
+#Req 4 - Deepak
+19 June 2019
+•	Ability to disable specific cause code alerts  on fly.
