@@ -1,0 +1,29 @@
+#send.py
+#import pika
+
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+
+
+channel.queue_declare(queue="QCDR")
+
+channel.basic_publish(exchange = '',
+											routing_key = 'QCDR',
+											body='message')
+
+connection.close()
+
+#receive.py
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+channel.queue_declare(queue="QCDR")
+
+def callback(ch, method, properties, body):
+    print(" [x] Received %r" % body)
+
+
+channel.basic_consume(callback,
+		                  queue='QCDR',
+		                  no_ack=True)
+
+channel.start_consuming()

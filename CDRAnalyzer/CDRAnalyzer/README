@@ -1,0 +1,15 @@
+This file describes the design and purpose of the application.
+
+1) Run the watchdog on the directory to watch. This directory will receive CDRs from
+all clusters. Upon dectecting a new file:
+	a. 	Invoke the method to read the CSV and verify if it is a CSV before inserting
+		into the temp table - local_cdr
+	b. 	Once inserted into the local_cdr table perform the steps to detect and alert
+		based on predefined rules
+	c.	The predefined rules can be in a rules.json file. The rules will be
+			c1.	What is considered a widely used authorization code
+			c2.	what is the interval in which to analyze authorization code usage?
+			c3. Disable the authorization code if it is used in more than one phone at
+				the same time
+			c4. Disable the FAC if it is used in more than one location on the same
+				day

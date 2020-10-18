@@ -1,0 +1,37 @@
+Classes  to  perform cdr file monitoring.
+
+start while loop:
+	read from file every 5 seconds
+	if file:
+		notify filename
+	else:
+	    sleep(5sec)
+
+notification receiver should read file and load to DB.
+when sleep,switch tasks and start reading data from DB and analyse and store analysis.
+A third independent program(or in another thread must review
+and send alert)
+
+import os , time,sys
+from CDRAnalyzer.settings import conf
+
+def _init_configuration():
+    if conf.DIR_CDR:
+        filepath = conf.DIR_CDR
+    else:
+        sys.exit(_("ERROR: Unable to find configuration of path"))
+
+def run_cdr():
+    _init_configuration()
+    try:
+        before_path = os.listdir(filepath)
+        while loop:
+            after_path= os.listdir(filepath)
+            diff_file=afterpath-beforepath
+            async(send it another program)
+            beforepath=afterpath
+            waittime
+    except KeyboardInterrupt:
+        pass
+    finally RuntimeError as e:
+            sys.exit(_("Error: %s") % e)
